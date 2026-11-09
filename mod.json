@@ -1,0 +1,58 @@
+{
+  "geode": "5.11.2",
+  "gd": { "android": "2.2081" },
+  "version": "1.1.0",
+  "id": "mfkr0001.custom-colors",
+  "name": "Custom Colors",
+  "developer": "mfkr0001-cloud",
+  "description": "Настройка цветов P1, P2 и Glow. Импорт и экспорт цветовых профилей .ccprofile.",
+  "tags": ["customization", "utility"],
+  "settings": {
+    "p1-title": { "type": "title", "name": "Цвета иконки" },
+    "p1-color": {
+      "name": "P1 — первый цвет",
+      "description": "Первый цвет иконки игрока.",
+      "type": "rgb",
+      "default": "#FF4040"
+    },
+    "p2-color": {
+      "name": "P2 — второй цвет",
+      "description": "Второй цвет иконки игрока.",
+      "type": "rgb",
+      "default": "#4080FF"
+    },
+    "glow-color": {
+      "name": "Glow — свечение",
+      "description": "Цвет свечения иконки игрока.",
+      "type": "rgb",
+      "default": "#FFFFFF"
+    },
+    "profile-title": { "type": "title", "name": "Профили цветов" },
+    "profile-password": {
+      "name": "Пароль профиля (необязательно)",
+      "description": "Укажи пароль перед экспортом, чтобы профиль требовал его при импорте. Оставь поле пустым, если пароль не нужен.",
+      "type": "string",
+      "default": ""
+    },
+    "export-profile": {
+      "name": "Экспортировать профиль (.ccprofile)",
+      "description": "Выбери место и имя файла для сохранения текущих P1, P2 и Glow.",
+      "type": "file",
+      "default": "",
+      "control": {
+        "dialog": "save",
+        "filters": [{ "files": ["*.ccprofile"], "description": "Custom Colors profile" }]
+      }
+    },
+    "import-profile": {
+      "name": "Импортировать профиль (.ccprofile)",
+      "description": "Выбери ранее экспортированный профиль. Если он защищён паролем, сначала введи пароль выше.",
+      "type": "file",
+      "default": "",
+      "control": {
+        "dialog": "open",
+        "filters": [{ "files": ["*.ccprofile"], "description": "Custom Colors profile" }]
+      }
+    }
+  }
+}

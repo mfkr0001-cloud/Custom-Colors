@@ -1,0 +1,28 @@
+name: Build Custom Colors Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build-android:
+    name: Build Android ARM64
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Geode mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          sdk: "5.11.2"
+          target: Android64
+
+      - name: Upload .geode artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Custom-Colors-Android64
+          path: ${{ steps.build.outputs.build-output }}/*.geode
+          if-no-files-found: error
